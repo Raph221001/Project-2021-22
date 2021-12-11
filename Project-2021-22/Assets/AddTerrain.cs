@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AddTerrain : MonoBehaviour
 {
+    //Added to set a good height for the terrain
     int heightscale = 5;
     float detailScale = 5.0f;
 
