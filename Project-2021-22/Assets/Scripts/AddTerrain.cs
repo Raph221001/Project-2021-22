@@ -7,6 +7,7 @@ public class AddTerrain : MonoBehaviour
     //Added to set a good height for the terrain
     int heightscale = 5;
     float detailScale = 5.0f;
+    public GameObject Firtree;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +18,10 @@ public class AddTerrain : MonoBehaviour
         {
             vertices[v].y = Mathf.PerlinNoise((vertices[v].x + this.transform.position.x)/detailScale, 
             (vertices[v].z + this.transform.position.z)/detailScale)*heightscale;
+
         }
 
-        mesh.vertices = vertices;
+    mesh.vertices = vertices;
     mesh.RecalculateBounds();
     mesh.RecalculateNormals();
     this.gameObject.AddComponent<MeshCollider>();
