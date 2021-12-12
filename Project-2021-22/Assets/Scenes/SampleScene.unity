@@ -341,6 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plane: {fileID: 9179575470572506252, guid: 608b64714564c134eaf039bc0516bf72, type: 3}
+  player: {fileID: 1953514561}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

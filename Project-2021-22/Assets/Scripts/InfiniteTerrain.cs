@@ -17,6 +17,7 @@ class Tile
 public class InfiniteTerrain : MonoBehaviour
 {
     public GameObject plane;
+    public GameObject player;
     
         int planesize = 10;
         int halfTilesX = 10;
@@ -54,6 +55,39 @@ public class InfiniteTerrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        int xMove = (int)(player.transform.position.x - startPos.x);
+        int zMove = (int)(player.transform.position.z - startPos.z);
+
+        if(Mathf.Abs(xMove) >= planesize || Mathf.Abs(zMove) >= planesize)
+        {
+            float updateTime = Time.realtimeSinceStartup;
+
+            int playerX = (int)(Mathf.Floor(player.transform.position.x/planesize)*planesize);
+            int playerZ = (int)(Mathf.Floor(player.transform.position.z/planesize)*planesize);
+
+            for(int x = -halfTilesX; x < halfTilesX; x++)
+            {
+                for(int z = -halfTilesX; z < halfTilesX; z++)
+                {
+                    Vector3 pos = new Vector3(( x * planesize + playerX),
+                    0, (z * planesize + playerZ));
+
+                    string tilename = "Tile_" + ((int)(pos.x)).ToString() + "_" + ((int)(pos.z)).ToString();
+
+                    if(!tiles.ContainsKey(tilename))
+                    {
+                        GameObject t = (GameObject) Instantiate(plane, pos, Quaternion.identity);
+                        t.name = tilename;
+                        Tile tile = new Tile(t, updateTime);
+                        tiles.Add(tilename, tile);
+                    }
+                    else
+                    {
+                        (tiles[tilename] as Tile).creationTime = updateTime;
+                    }
+                }
+            }
+
+        }
     }
 }
