@@ -18,7 +18,6 @@ public class InfiniteTerrain : MonoBehaviour
 {
     public GameObject plane;
     
-
         int planesize = 10;
         int halfTilesX = 10;
         int halfTilesZ = 10;
