@@ -17,7 +17,7 @@ class Tile
 public class InfiniteTerrain : MonoBehaviour
 {
     public GameObject plane;
-        public GameObject player;
+    
 
         int planesize = 10;
         int halfTilesX = 10;
