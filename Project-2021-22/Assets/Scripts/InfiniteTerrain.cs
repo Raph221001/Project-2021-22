@@ -20,8 +20,8 @@ public class InfiniteTerrain : MonoBehaviour
     public GameObject player;
     
         int planesize = 10;
-        int halfTilesX = 10;
-        int halfTilesZ = 10;
+        int halfTilesX = 3;
+        int halfTilesZ = 3;
 
         Vector3 startPos;
 
