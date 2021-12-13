@@ -19,7 +19,7 @@ public class AddTerrain : MonoBehaviour
             vertices[v].y = Mathf.PerlinNoise((vertices[v].x + this.transform.position.x)/detailScale, 
             (vertices[v].z + this.transform.position.z)/detailScale)*heightscale;
 
-            if(vertices[v].y > 2.6 && Mathf.PerlinNoise((vertices[v].x+5)/10,(vertices[v].z+5)/10)*10 > 4.6)
+            if(vertices[v].y > 3.6 && Mathf.PerlinNoise((vertices[v].x+5)/10,(vertices[v].z+5)/10)*10 > 4.6)
             {
                 GameObject newTree = TreePool.getTree();
                 if (newTree != null)
