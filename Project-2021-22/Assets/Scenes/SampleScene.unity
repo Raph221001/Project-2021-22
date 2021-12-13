@@ -441,7 +441,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 65ae6928a010fda4ebd42cbcad9b01a3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 300402d3fd02d9246a04e8b4957e3a0a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -537,7 +537,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 300402d3fd02d9246a04e8b4957e3a0a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 65ae6928a010fda4ebd42cbcad9b01a3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -722,6 +722,7 @@ MonoBehaviour:
   controller: {fileID: 1953514563}
   speed: 5
   gravity: -9.81
+  jumpHeight: 3
   groundCheck: {fileID: 2065140081}
   groundDistance: 0.4
   groundMask:
