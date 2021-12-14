@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TreePool : MonoBehaviour
 {
-    static int numTrees = 10000;
+    static int numTrees = 1000;
     public GameObject treePrefab;
     static GameObject[] trees;
 

@@ -12,10 +12,12 @@ public class AddTerrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         Mesh mesh = this.GetComponent<MeshFilter>().mesh;
         Vector3[] vertices = mesh.vertices;
         for (int v = 0; v < vertices.Length; v++)
         {
+            //height of vertex is set using perlin noise function
             vertices[v].y = Mathf.PerlinNoise((vertices[v].x + this.transform.position.x)/detailScale, 
             (vertices[v].z + this.transform.position.z)/detailScale)*heightscale;
 
@@ -33,10 +35,11 @@ public class AddTerrain : MonoBehaviour
             }
         }
 
+    //Set vertices that were in previous array and put it back onto mesh
     mesh.vertices = vertices;
     mesh.RecalculateBounds();
     mesh.RecalculateNormals();
-    this.gameObject.AddComponent<MeshCollider>();
+    this.gameObject.AddComponent<MeshCollider>();//Added to enable movement on the surface 
 
     }
 
