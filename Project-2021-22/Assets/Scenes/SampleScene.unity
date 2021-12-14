@@ -804,6 +804,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  isSprinting: 0
+  sprintingMultiplier: 10
 --- !u!82 &1953514565
 AudioSource:
   m_ObjectHideFlags: 0
