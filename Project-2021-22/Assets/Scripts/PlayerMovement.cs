@@ -14,14 +14,6 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-    public bool isSprinting = false;
-    public float sprintingMultiplier;
-    public float crouchingMultiplier;
-
-    public float crouchingHeight = 1.25f;
-    public bool isCrouching = false;
-    public float standingHeight = 1.0f;
-
     Vector3 velocity;
     bool isGrounded;
 
@@ -51,30 +43,6 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); 
         }
-
-        if(Input.GetKey(KeyCode.LeftShift))
-        {
-            isSprinting = true;
-        }
-
-        else
-        {
-            isSprinting = false;
-        }
-
-        if (isCrouching == true)
-        {
-            controller.height = crouchingHeight;
-            move *= crouchingMultiplier;
-        }
-        else
-        {
-            controller.height = standingHeight;
-        }
-        if (isSprinting == true)
-        {
-            move *= sprintingMultiplier;
-        }  
 
         velocity.y += gravity * Time.deltaTime;
 
