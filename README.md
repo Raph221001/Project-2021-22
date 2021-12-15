@@ -4,7 +4,7 @@ Name: Raphael Ofeimu
 
 Student Number: C18359123
 
-Class Group: TU 858/4
+Class Group: DT 282/4
 
 # Description of Project
 
@@ -18,7 +18,49 @@ You should first press the play button in Unity to start the project. Once the p
 
 ## Procedural Terrain
 
-An infinite terrain is generated here using the perlin noise function. As the player walks closer to the edge of the map more terrain is generated and this cycle will continue forever.
+An infinite terrain is generated here using the perlin noise function. As the player walks closer to the edge of the map more terrain is generated and this cycle will continue forever. In the code snippet below it basically shows how the tiles of the plane are generated as the player moves around. The player's position is kept track of and as they move aound the the plane behind them is destoryed as more generates ahead.
+
+```C#
+ void Update()
+    {
+        //Determines how far the player has moved in these directions(X and Z)
+        int xMove = (int)(player.transform.position.x - startPos.x);
+        int zMove = (int)(player.transform.position.z - startPos.z);
+
+        //Tiles around the player are updated if player moves
+        if(Mathf.Abs(xMove) >= planesize || Mathf.Abs(zMove) >= planesize)
+        {
+            float updateTime = Time.realtimeSinceStartup;
+
+            int playerX = (int)(Mathf.Floor(player.transform.position.x/planesize)*planesize);
+            int playerZ = (int)(Mathf.Floor(player.transform.position.z/planesize)*planesize);
+
+            for(int x = -halfTilesX; x < halfTilesX; x++)
+            {
+                for(int z = -halfTilesX; z < halfTilesX; z++)
+                {
+                    Vector3 pos = new Vector3(( x * planesize + playerX),
+                    0, (z * planesize + playerZ));
+
+                    string tilename = "Tile_" + ((int)(pos.x)).ToString() + "_" + ((int)(pos.z)).ToString();
+
+                    if(!tiles.ContainsKey(tilename))
+                    {
+                        GameObject t = (GameObject) Instantiate(plane, pos, Quaternion.identity);
+                        t.name = tilename;
+                        Tile tile = new Tile(t, updateTime);
+                        tiles.Add(tilename, tile);
+                    }
+                    else
+                    {
+                        (tiles[tilename] as Tile).creationTime = updateTime;
+                    }
+                }
+            }
+
+        }
+    }
+```
 
 ## Procedural Trees
 
@@ -35,6 +77,8 @@ Trees were created by using the Unity GameObject. They all have a capsule collid
         }
 ```
 You can up above how the array is set to however many trees there are and is then created in this loop.
+
+(Tree Image) (https://drive.google.com/file/d/1CJP85Z8-5sgiDyxp01ReK2cwwWzw4xvk/view?usp=sharing)
 
 ## Movement
 
@@ -114,9 +158,18 @@ The music selector script enables music to be played while the project is runnin
 | TreePool.cs | Self-Made |
 | OptimizedTreePrefab.cs | Self-Made |
 
+# References
+
+Tutorial - https://www.youtube.com/watch?v=dycHQFEz8VI&t=1319s&ab_channel=Holistic3d
+
+Lighting - https://www.youtube.com/watch?v=m9hj9PdO328&t=301s&ab_channel=ProbablySpoonie
+
+What is Procedural Generation in Unity - https://www.red-gate.com/simple-talk/development/dotnet-development/procedural-generation-unity-c/
+
+
 # Proposal
 
-The goal of this assignment is to create an impressive system in Unity that uses procedural generation, 3D models and paints a picture in code. I would like to create an infinite terrain with procedural trees for this terrain. I would also like to have other procedural objects on the terrain that can really enhance the user experience while going through the terrain. There would most likely be clouds that would be created for the sky as well.
+The goal of this assignment is to create an impressive system in Unity that uses procedural generation, 3D models and paints a picture in code. I would like to create an infinite terrain with procedural trees for this terrain. I would also like to have other procedural objects on the terrain that can really enhance the user experience while going through the terrain. There would most likely be clouds that would be created for the sky as well (Unfortunately couldn't get that implemented).
 
 # What am I most proud of in the assignment
 
