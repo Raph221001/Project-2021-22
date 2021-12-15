@@ -17,12 +17,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -32,11 +26,14 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = -2f;
         }
+        //Contains input of directions
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
+        //Sets the directions for the movement of the player
         Vector3 move = transform.right * x + transform.forward * z;
 
+        //Allows the player to move at speed of 12f
         controller.Move(move * speed * Time.deltaTime);
 
         if(Input.GetButtonDown("Jump") && controller.isGrounded)
