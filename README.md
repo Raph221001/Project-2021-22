@@ -157,6 +157,7 @@ The music selector script enables music to be played while the project is runnin
 | MusicSelector.cs | Self-Made |
 | TreePool.cs | Self-Made |
 | OptimizedTreePrefab.cs | Self-Made |
+| Wind Zone GameObject| Self-Made |
 
 # References
 
