@@ -31,8 +31,8 @@ public class AddTerrain : MonoBehaviour
                     Vector3 treePos = new Vector3(vertices[v].x + this.transform.position.x,
                     vertices[v].y, vertices[v].z + this.transform.position.z);
                     newTree.transform.position = treePos;
-                    newTree.SetActive(true);
-                    myTrees.Add(newTree);
+                    newTree.SetActive(true);//Tree is made visible
+                    myTrees.Add(newTree);//Tree is added to my trees list
                 }
             }
         }
@@ -45,6 +45,7 @@ public class AddTerrain : MonoBehaviour
 
     }
 
+    //When plane behind player is destroyed trees that are also behind the player are set to inactive
     void OnDestroy()
     {
         for(int i = 0; i < myTrees.Count; i++)

@@ -5,20 +5,20 @@ using UnityEngine;
 public class TreePool : MonoBehaviour
 {
     //Sets number of trees to be created and are then placed into an array
-    static int numTrees = 1000;
+    static int no_of_trees = 1000;
     public GameObject treePrefab;
-    static GameObject[] trees;
+    static GameObject[] Trees;
 
     // Start is called before the first frame update
     void Start()
     {
         //Array is set to size of the number of trees
-        trees = new GameObject[numTrees];
-        for (int i = 0; i < numTrees; i++)
+        Trees = new GameObject[no_of_trees];
+        for (int i = 0; i < no_of_trees; i++)
         {
             //Trees are created
-            trees[i] = (GameObject) Instantiate(treePrefab, Vector3.zero, Quaternion.identity);
-            trees[i].SetActive(false);
+            Trees[i] = (GameObject) Instantiate(treePrefab, Vector3.zero, Quaternion.identity);
+            Trees[i].SetActive(false);
         }
     }
 
@@ -26,11 +26,11 @@ public class TreePool : MonoBehaviour
     //If none available then null is returned
     static public GameObject getTree()
     {
-        for (int i = 0; i < numTrees; i++)
+        for (int i = 0; i < no_of_trees; i++)
         {
-            if(!trees[i].activeSelf)
+            if(!Trees[i].activeSelf)
             {
-                return trees[i];
+                return Trees[i];
             }
         }
         return null;
