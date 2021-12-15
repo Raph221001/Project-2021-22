@@ -177,4 +177,4 @@ There are alot of things that I am proud of in this assignment. I am proud of th
 
 # Youtube Video
 
-[!][YouTube Vid](https://youtu.be/t0a66ACeTVc)
+[YouTube Vid](https://youtu.be/t0a66ACeTVc)
